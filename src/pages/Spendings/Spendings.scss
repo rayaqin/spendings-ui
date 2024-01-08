@@ -1,0 +1,35 @@
+@import '../../utils/variables.scss';
+
+/* Remove arrows from number input */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.spendings-outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $page-background-color;
+    .spendings-container {
+        display: flex;
+        width: 100%;
+        max-width: 65rem;
+        min-width: 23rem;
+        flex-direction: column;
+        padding: 0.5rem;
+
+        button,
+        input,
+        select {
+            border: 0;
+        }
+    }
+}

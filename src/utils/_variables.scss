@@ -1,0 +1,33 @@
+$text-primary-color: black;
+$text-bright-color: white;
+$ui-bg-primary: white;
+$page-background-color: rgba(211, 211, 225, 0.3);
+$submit-button-color: rgb(27, 172, 105);
+$error-button-color: rgb(123, 26, 26);
+
+$button-selected-color: rgba(137, 218, 247, 0.3);
+$highlight-ui-color: rgba(137, 218, 247, 0.3);
+$button-selected-font-color: rgb(26, 126, 192);
+$highlight-font-color: rgb(26, 126, 192);
+$hover-box-shadow-color: rgba(137, 218, 247, 0.5);
+
+$box-shadow-slim: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1.5px 4px 1.5px;
+$box-shadow-plump: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+@mixin hoverBoxShadow($color: $hover-box-shadow-color) {
+    &:hover {
+        box-shadow: $color 0px 1px 2px 0px, $color 0px 1.5px 4px 1.5px;
+    }
+}
+
+@mixin largeHoverBoxShadow($color: $hover-box-shadow-color) {
+    &:hover {
+        box-shadow: $color 0px 1px 2px 0px, $color 0px 2px 6px 2px;
+    }
+}
+
+$default-ui-element-height: 2.2rem;
+$small-flex-gap: 0.2rem;
+$default-flex-gap: 0.5rem;
+$medium-flex-gap: 1.5rem;
+$medium-border-radius: 0.5rem;

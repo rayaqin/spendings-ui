@@ -1,0 +1,46 @@
+@import '../../utils/variables.scss';
+
+.spending-display__settings {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: $text-primary-color;
+
+    .settings__wrapper-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        gap: $default-flex-gap;
+        .wrapper-box__sort-order {
+            max-width: 400px;
+            height: $default-ui-element-height;
+            border-radius: $medium-border-radius;
+            padding: 0 0.4rem;
+
+            @include hoverBoxShadow();
+        }
+
+        .wrapper-box__currency {
+            button {
+                border-radius: 0.4rem;
+                height: $default-ui-element-height;
+                padding: 0.4rem;
+                margin-right: 0.5rem;
+                background-color: $ui-bg-primary;
+                cursor: pointer;
+                &.button__selected {
+                    font-weight: bold;
+                    background-color: $highlight-ui-color;
+                    color: $highlight-font-color;
+                }
+
+                @include hoverBoxShadow();
+            }
+
+            :last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

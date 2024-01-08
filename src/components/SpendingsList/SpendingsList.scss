@@ -1,0 +1,13 @@
+.spendings-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    .spendings-list__skeleton {
+        height: 100px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,110 @@
+@import '.../../../../utils/_variables.scss';
+
+.spending-display__new-spending-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .new-spending-form__inputs {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: $default-flex-gap;
+
+        .inputs__description {
+            min-width: 15rem;
+            padding: 0 0.4rem;
+            border-radius: $medium-border-radius;
+            box-shadow: $box-shadow-slim;
+            height: $default-ui-element-height;
+            flex-grow: 1;
+
+            @include hoverBoxShadow();
+        }
+
+        .inputs__wrapper {
+            display: flex;
+            align-items: center;
+            gap: $default-flex-gap;
+            .wrapper__amount {
+                max-width: 100%;
+                padding: 0 0.4rem;
+                border-radius: $medium-border-radius;
+                box-shadow: $box-shadow-slim;
+                height: $default-ui-element-height;
+
+                @include hoverBoxShadow();
+            }
+
+            .wrapper__currency {
+                border-radius: $medium-border-radius;
+                box-shadow: $box-shadow-slim;
+                height: $default-ui-element-height;
+                font-weight: 700;
+                option {
+                    font-weight: 600;
+                }
+
+                @include hoverBoxShadow();
+            }
+        }
+    }
+
+    .new-spending-form__submit {
+        height: $default-ui-element-height;
+        width: 4rem;
+        margin-left: $default-flex-gap;
+        border-radius: $medium-border-radius;
+        background-color: $submit-button-color;
+        box-shadow: $box-shadow-slim;
+        font-weight: bold;
+        color: $text-bright-color;
+        letter-spacing: 0.08rem;
+        cursor: pointer;
+
+        @include hoverBoxShadow();
+
+        &.error {
+            background-color: $error-button-color;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.loader {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: darkgreen transparent;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
