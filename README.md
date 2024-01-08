@@ -10,6 +10,7 @@ https://github.com/polygence/spending-frontend?tab=readme-ov-file
     -   [The Edit and Delete buttons](#the-edit-and-delete-buttons)
     -   [Git commits](#git-commits)
     -   [Extra bits](#extra-bits)
+    -   [Potential sass failed to load issue](#potential-sass-failed-to-load-issue)
 
 ## Quick Setup
 
@@ -58,3 +59,8 @@ It only occured to me towards the very end of development that you might actuall
 -   Ended up with a custom implementation of **skeletons for the SpendingsList**, because the React Loading Skeleton library just didn't work properly for me, and refused to play animations the right way.
 -   Although technically it wasn't strictly necessary, I **filtered the backend response**, to make sure the array items are the right type before trying to display them.
 -   Added some **cute hover effects**, and a favicon.
+
+## Potential sass failed to load issue
+
+The newest node version causes an error with loading sass. If you encounter this error, downgrade to 20.10.0 or lower.
+https://github.com/vercel/next.js/issues/57005
