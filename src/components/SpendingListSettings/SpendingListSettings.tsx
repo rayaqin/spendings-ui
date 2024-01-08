@@ -18,8 +18,8 @@ const SpendingListSettings: React.FC<SpendingListSettingsProps> = ({ handleSetti
                     value={listSettings.sortOrder as string}
                     onChange={(event) => handleSettingsChange({ sortOrder: event.target.value as TSpendingsListSettings['sortOrder'] })}
                 >
-                    <option value="spent_at">Sort by Date descending (default)</option>
-                    <option value="-spent_at">Sort by Date ascending</option>
+                    <option value="spent_at">Sort by Date ascending</option>
+                    <option value="-spent_at">Sort by Date descending (default)</option>
                     <option value="amount">Sort by Amount ascending</option>
                     <option value="-amount">Sort by Amount descending</option>
                 </select>
