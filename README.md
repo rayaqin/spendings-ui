@@ -3,6 +3,16 @@
 This repo has been created as part of an interview process to fulfill the requirements listed here:
 https://github.com/polygence/spending-frontend?tab=readme-ov-file
 
+-   [Polygence coding challenge](#polygence-coding-challenge)
+    -   [Quick Setup](#quick-setup)
+    -   [Tech stack related notes](#tech-stack-related-notes)
+    -   [Why I did not use Redux](#why-i-did-not-use-redux)
+    -   [The Edit and Delete buttons](#the-edit-and-delete-buttons)
+    -   [Git commits](#git-commits)
+    -   [Extra bits](#extra-bits)
+
+## Quick Setup
+
 To run the app locally after cloning:
 
 ```
@@ -19,18 +29,18 @@ To run a few tests:
 npm run test
 ```
 
-## Tech stack related notes:
+## Tech stack related notes
 
 Alongside **React and Typescript** which are my usual preferred choices for web applications, I decided to try **Vite** as the module bundler, since it is apparently a popular choice nowadays.
 
 I also opted to try the **ReactQuery** library, as I've seen it being recommended by people in the React community.
 
-## Why I did not use Redux:
+## Why I did not use Redux
 
 I'm in general not a fan of tricking the user into thinking they've added something to a list before confirming from the server's response that it actually happened, and I saw that the backend can take care of sorting, so it did not seem necessary at all to store the spendings data in a centralized store of such a small app. Also I've listened to podcasts with Dan Abramov, and even he doesn't recommend using redux for most everyday usecases.
 I could have forced a basic store setup just for the sake of showing that I know how to, but it didn't feel right. I hope thats okay.
 
-## The Edit and Delete buttons:
+## The Edit and Delete buttons
 
 Since the acceptance criteria doesn't mention the edit and delete buttons, and the backend didn't allow for UPDATE and DELETE requests, plus on the provided image the buttons look disabled, I decided to just disable the buttons. Under normal circumstances when I'm uncertain what the scope of the task is exactly, I would ask, but I thought in this case I am supposed to make some assumptions, and submit an acceptable solution, instead of asking about every small thing.
 
@@ -38,7 +48,7 @@ Since the acceptance criteria doesn't mention the edit and delete buttons, and t
 
 It only occured to me towards the very end of development that you might actually be interested in what the commits look like, in terms of commit message, size, and changes being grouped together, but it was too late to do that properly by that point. I am aware of the best practices related to collaboration on git though, even if this repo won't testify for it.
 
-## Extra bits:
+## Extra bits
 
 -   I had noticed that the backend does **not allow for descriptions longer than 200 characters**, so I've restricted the input and added a nice toast warning message.
 -   Handled the special case when the description is as long as it can be, and has no white spaces.
