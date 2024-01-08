@@ -57,7 +57,7 @@ const NewSpendingForm: React.FC<NewSpendingFormProps> = ({ triggerRefetch }) => 
         },
         onError: () => {
             setSaveButtonState('Error');
-            toast.error('An error occured while saving the spending. Try again later.', toastSettings);
+            toast.error('An error occured while saving the spending. Try again later.', { ...toastSettings, toastId: 'error' });
             setTimeout(() => {
                 setSaveButtonState('Save');
             }, 2000);
@@ -76,7 +76,7 @@ const NewSpendingForm: React.FC<NewSpendingFormProps> = ({ triggerRefetch }) => 
     const handleChange = (key: keyof TNewSpendingEntry) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         if (key === 'description') {
             if (event.target.value.length === 200) {
-                toast.info('The description can at most be 200 characters long.', toastSettings);
+                toast.info('The description can at most be 200 characters long.', { ...toastSettings, toastId: 'description' });
                 return;
             }
         }
