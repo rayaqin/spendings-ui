@@ -9,6 +9,7 @@ https://github.com/polygence/spending-frontend?tab=readme-ov-file
     -   [Why I did not use Redux](#why-i-did-not-use-redux)
     -   [The Edit and Delete buttons](#the-edit-and-delete-buttons)
     -   [Git commits](#git-commits)
+    -   [Sorting ALL](#sorting-all)
     -   [Extra bits](#extra-bits)
     -   [Potential sass failed to load issue](#potential-sass-failed-to-load-issue)
 
@@ -48,6 +49,10 @@ Since the acceptance criteria doesn't mention the edit and delete buttons, and t
 ## Git commits
 
 It only occured to me towards the very end of development that you might actually be interested in what the commits look like, in terms of commit message, size, and changes being grouped together, but it was too late to do that properly by that point. I am aware of the best practices related to collaboration on git though, even if this repo won't testify for it.
+
+## Sorting ALL
+
+The backend sorts the data by amount based on the flat values, and doesn't take the currency into account. This might be the intended feature, so I did not overwrite it, but it does seem weird, so I thought it might be noteworthy.
 
 ## Extra bits
 
