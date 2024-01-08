@@ -34,6 +34,10 @@ I could have forced a basic store setup just for the sake of showing that I know
 
 Since the acceptance criteria doesn't mention the edit and delete buttons, and the backend didn't allow for UPDATE and DELETE requests, plus on the provided image the buttons look disabled, I decided to just disable the buttons. Under normal circumstances when I'm uncertain what the scope of the task is exactly, I would ask, but I thought in this case I am supposed to make some assumptions, and submit an acceptable solution, instead of asking about every small thing.
 
+## Git commits
+
+It only occured to me towards the very end of development that you might actually be interested in what the commits look like, in terms of commit message, size, and changes being grouped together, but it was too late to do that properly by that point. I am aware of the best practices related to collaboration on git though, even if this repo won't testify for it.
+
 ## Extra bits:
 
 -   I had noticed that the backend does **not allow for descriptions longer than 200 characters**, so I've restricted the input and added a nice toast warning message.
