@@ -12,7 +12,7 @@ const spendingURL: string = process.env.VITE_SPENDING_API_URL as string;
 const defaultListSettings: TSpendingsListSettings = {
     keyFlip: false,
     sortOrder: 'spent_at',
-    currencyFilter: CurrencyOptionsEnum.USD,
+    currencyFilter: CurrencyOptionsEnum.ALL,
 };
 
 
