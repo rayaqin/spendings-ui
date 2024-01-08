@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import './utils/normalize.scss';
+import './utils/normalize.css';
 import './App.scss';
 import Spendings from './pages/Spendings/Spendings'
 

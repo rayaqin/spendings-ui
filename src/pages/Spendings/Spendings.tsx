@@ -20,9 +20,7 @@ const Spendings: React.FC = () => {
 
     const [listSettings, setListSettings] = useState<TSpendingsListSettings>(defaultListSettings);
 
-    const isListSettingsDefault = () => JSON.stringify(listSettings) === JSON.stringify(defaultListSettings);
-
-    const assembledURL = assembleSpendingUrl(isListSettingsDefault(), listSettings, spendingURL);
+    const assembledURL = assembleSpendingUrl(listSettings, spendingURL);
 
     const { data, isLoading, isError } = useQuery(['spendings', listSettings], () =>
         fetch(assembledURL)
