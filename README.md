@@ -48,7 +48,7 @@ Since the acceptance criteria doesn't mention the edit and delete buttons, and t
 
 ## Git commits
 
-It only occured to me towards the very end of development that you might actually be interested in what the commits look like, in terms of commit message, size, and changes being grouped together, but it was too late to do that properly by that point. I am aware of the best practices related to collaboration on git though, even if this repo won't testify for it.
+It only occured to me towards the very end of development that you might actually be interested in what the commits look like, in terms of commit message, size, and changes being grouped together, but it was too late to do that properly by that point. I am aware of the [best practices](https://www.conventionalcommits.org/en/v1.0.0/#summary) related to collaboration on git though, even if this repo won't testify for it.
 
 ## Sorting ALL
 
