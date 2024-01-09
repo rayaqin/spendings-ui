@@ -56,7 +56,7 @@ const Spendings: React.FC = () => {
         fetch(process.env.VITE_EXCHANGE_RATE_API_URL as string)
             .then(response => response.json())
             .then(data => {
-                if (data) {
+                if (data && data.rates && data.rates['HUF'] && data.rates['USD']) {
                     const usdValue = data.rates['HUF'] / data.rates['USD'];
                     console.info("%c1 USD equals " + usdValue + " HUF", "font-weight: bold; color: #22dd22");
                     currencyToValueMap[CurrencyEnum.USD] = usdValue;
