@@ -27,13 +27,13 @@ const sortSpendingsList = (spendingsList: TSpendingEntry[], sortOrder: TSpending
 const defaultSettings: TSpendingsListSettings = {
     sortOrder: '-spent_at',
     currencyFilter: CurrencyOptionsEnum.ALL,
+    clientSideSortAndFilter: false,
 };
 
 const Spendings: React.FC = () => {
 
 
     const [listSettings, setListSettings] = useState<TSpendingsListSettings>(defaultSettings);
-    const [clientSideSortAndFilter, setClientSideSortAndFilter] = useState<boolean>(false);
 
     const assembledURL = assembleSpendingUrl(listSettings, spendingURL);
 
@@ -56,25 +56,16 @@ const Spendings: React.FC = () => {
         refetch();
     }
 
-    const flipClientSideSortAndFilter = () => {
-        setClientSideSortAndFilter((previousState) => !previousState);
-    }
-
 
     return (
         <div className="spendings-outer-container">
             <h1 className="spendings-outer-container__spendings-title">Manage Spendings</h1>
             <div className="spendings-outer-container__spendings-container">
-                <div className="">
-                    <button className="spendings-container__client-side-sort-and-filter-button" onClick={flipClientSideSortAndFilter}>
-                        ClientSideSortAndFilter {clientSideSortAndFilter ? 'ON' : 'OFF'}
-                    </button>
-                </div>
                 <NewSpendingForm triggerRefetch={triggerRefetch} />
                 <SpendingDisplay
                     listSettings={listSettings}
                     handleSettingsChange={handleSettingsChange}
-                    spendingsData={clientSideSortAndFilter ? sortSpendingsList(extractValidData(data), listSettings.sortOrder) : extractValidData(data)}
+                    spendingsData={listSettings.clientSideSortAndFilter ? sortSpendingsList(extractValidData(data), listSettings.sortOrder) : extractValidData(data)}
                     isLoading={isLoading}
                     isError={isError}
                 />

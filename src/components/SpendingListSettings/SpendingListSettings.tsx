@@ -2,6 +2,7 @@ import React from 'react';
 import { CurrencyOptionsEnum, TSpendingsListSettings } from '../../utils/spendingTypes';
 import './SpendingListSettings.scss';
 import classNames from 'classnames';
+import ToggleButton from '../ToggleButton/ToggleButton';
 
 type SpendingListSettingsProps = {
     handleSettingsChange: (newListSettings: Partial<TSpendingsListSettings>) => void,
@@ -9,6 +10,10 @@ type SpendingListSettingsProps = {
 }
 
 const SpendingListSettings: React.FC<SpendingListSettingsProps> = ({ handleSettingsChange, listSettings }) => {
+
+    const flipClientSideSortAndFilter = () => {
+        handleSettingsChange({ clientSideSortAndFilter: !listSettings.clientSideSortAndFilter });
+    }
     return (
         <div className="spending-display__settings">
             <div className="settings__wrapper-box">
@@ -23,6 +28,9 @@ const SpendingListSettings: React.FC<SpendingListSettingsProps> = ({ handleSetti
                     <option value="amount">Sort by Amount ascending</option>
                     <option value="-amount">Sort by Amount descending</option>
                 </select>
+                <div className="spendings-container__settings">
+                    <ToggleButton toggleFn={flipClientSideSortAndFilter} value={listSettings.clientSideSortAndFilter} />
+                </div>
                 <div className="wrapper-box__currency" >
                     {Object.values(CurrencyOptionsEnum).map((currency) => (
                         <button

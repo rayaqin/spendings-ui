@@ -38,4 +38,5 @@ export type TSpendingInputType = keyof typeof SpendingInputEnum;
 export type TSpendingsListSettings = {
     sortOrder: 'spent_at' | 'amount' | '-spent_at' | '-amount';
     currencyFilter: CurrencyOptionsEnum;
+    clientSideSortAndFilter: boolean;
 };

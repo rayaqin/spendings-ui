@@ -12,11 +12,20 @@ type SpendingDisplayProps = {
     isError: boolean,
 }
 
-const SpendingDisplay: React.FC<SpendingDisplayProps> = ({ listSettings, handleSettingsChange, spendingsData, isLoading, isError }) => {
+const SpendingDisplay: React.FC<SpendingDisplayProps> = ({
+    listSettings,
+    handleSettingsChange,
+    spendingsData,
+    isLoading,
+    isError,
+}) => {
 
     return (
         <div className="spending-display">
-            <SpendingListSettings listSettings={listSettings} handleSettingsChange={handleSettingsChange} />
+            <SpendingListSettings
+                listSettings={listSettings}
+                handleSettingsChange={handleSettingsChange}
+            />
             <SpendingsList spendings={spendingsData} isLoading={isLoading} isError={isError} />
         </div>
     );
