@@ -54,8 +54,8 @@ It only occured to me towards the very end of development that you might actuall
 -   **Sorting and filtering** settings are saved into **cookies**.
 -   I had noticed that the backend does **not allow for descriptions longer than 200 characters**, so I've restricted the input and added a nice toast warning message.
 -   Handled the special case when the description is as long as it can be, and has no white spaces.
--   Tried to make the app responsive **with minimal of media queries** as a challenge _(smallest screen I tested with is iPhone SE)_, since I've recently heard from Kevin Powell _(a prominent figure in CSS circles)_ that we should avoid unnecessary media queries if there is a better way. Because of edge case values of description and amount, I had to use some though to decrease the sizes here and there.
--   Used a **different icon for HUF and USD**, and tried to make the code about currency scalable everywhere including types.
+-   Tried to make the app responsive **with minimal of media queries** as a challenge _(smallest screen I tested with is iPhone SE)_, since I've recently heard from Kevin Powell _(a prominent figure in CSS circles)_ that we should avoid unnecessary media queries if there is a better way. In the end I had to use some though to decrease the sizes here and there because of edge case values of description and amount.
+-   Used a **different icon for HUF and USD**.
 -   Added a cute **loading animation to the Save button**, and an **error state + an error toast message**, to make it a bit nicer.
 -   Ended up with a custom implementation of **skeletons for the SpendingsList**, because the React Loading Skeleton library just didn't work properly for me, and refused to play animations the right way.
 -   Although technically it wasn't strictly necessary, I **filtered the backend response**, to make sure the array items are the right type before trying to display them.

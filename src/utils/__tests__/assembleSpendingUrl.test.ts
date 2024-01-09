@@ -2,7 +2,7 @@ import { assembleSpendingUrl } from '../assembleSpendingUrl';
 import { CurrencyOptionsEnum, TSpendingsListSettings } from '../spendingTypes';
 
 describe('assembleSpendingUrl', () => {
-    it('should return an url with both currency and sort order when currencyFilter is USD', () => {
+    it('should return an url with both currency and sort order when currencyFilter is "USD"', () => {
         const listSettings: TSpendingsListSettings = {
             sortOrder: 'spent_at',
             currencyFilter: CurrencyOptionsEnum.USD,
