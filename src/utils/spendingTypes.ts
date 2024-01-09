@@ -22,6 +22,10 @@ export type TNewSpendingEntry = {
     currency: CurrencyEnum;
 };
 
+export type TCurrencyToValueMap = {
+    [key in keyof typeof CurrencyEnum]: number;
+};
+
 export type TNewSpending = Omit<TSpendingEntry, 'id'>;
 
 export type TSaveButtonState = 'Save' | 'loading' | 'Success' | 'Error';

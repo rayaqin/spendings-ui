@@ -2,27 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './Spendings.scss';
 import NewSpendingForm from '../../components/NewSpendingForm/NewSpendingForm';
 import SpendingDisplay from '../../components/SpendingDisplay/SpendingDisplay';
-import { CurrencyEnum, CurrencyOptionsEnum, TSpendingEntry, TSpendingsListSettings } from '../../utils/spendingTypes';
+import { CurrencyEnum, CurrencyOptionsEnum, TSpendingsListSettings } from '../../utils/spendingTypes';
 import { useQuery } from 'react-query';
 import { extractValidData } from '../../utils/validData';
 import { assembleSpendingUrl } from '../../utils/assembleSpendingUrl';
 import { useCookies } from 'react-cookie';
+import { sortSpendingsList } from '../../utils/sortSpendingsList';
 
 const spendingURL: string = process.env.VITE_SPENDING_API_URL as string;
 
 const currencyToValueMap = {
     [CurrencyEnum.HUF]: 1,
     [CurrencyEnum.USD]: 345,
-};
-
-const sortSpendingsList = (spendingsList: TSpendingEntry[], sortOrder: TSpendingsListSettings['sortOrder']) => {
-    const sortDirection = sortOrder.startsWith('-') ? -1 : 1;
-    return [...spendingsList].sort((a, b) => {
-        if (sortOrder === 'spent_at' || sortOrder === '-spent_at') {
-            return sortDirection * (new Date(a['spent_at']).getTime() - new Date(b['spent_at']).getTime());
-        }
-        return sortDirection * (currencyToValueMap[a.currency] * a.amount - currencyToValueMap[b.currency] * b.amount);
-    });
 };
 
 
@@ -90,7 +81,7 @@ const Spendings: React.FC = () => {
                 <SpendingDisplay
                     listSettings={listSettings}
                     handleSettingsChange={handleSettingsChange}
-                    spendingsData={listSettings.clientSideSortAndFilter ? sortSpendingsList(extractValidData(data), listSettings.sortOrder) : extractValidData(data)}
+                    spendingsData={listSettings.clientSideSortAndFilter ? sortSpendingsList(extractValidData(data), listSettings.sortOrder, currencyToValueMap) : extractValidData(data)}
                     isLoading={isLoading}
                     isError={isError}
                 />

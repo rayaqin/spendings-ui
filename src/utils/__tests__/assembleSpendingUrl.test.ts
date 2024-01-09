@@ -3,7 +3,11 @@ import { CurrencyOptionsEnum, TSpendingsListSettings } from '../spendingTypes';
 
 describe('assembleSpendingUrl', () => {
     it('should return an url with both currency and sort order when currencyFilter is USD', () => {
-        const listSettings: TSpendingsListSettings = { keyFlip: false, sortOrder: 'spent_at', currencyFilter: CurrencyOptionsEnum.USD };
+        const listSettings: TSpendingsListSettings = {
+            sortOrder: 'spent_at',
+            currencyFilter: CurrencyOptionsEnum.USD,
+            clientSideSortAndFilter: false,
+        };
         const defaultURL = 'https://example.com';
 
         const result = assembleSpendingUrl(listSettings, defaultURL);
@@ -12,7 +16,11 @@ describe('assembleSpendingUrl', () => {
     });
 
     it('should return URL without currency parameter when currencyFilter is "ALL"', () => {
-        const listSettings: TSpendingsListSettings = { keyFlip: false, sortOrder: 'spent_at', currencyFilter: CurrencyOptionsEnum.ALL };
+        const listSettings: TSpendingsListSettings = {
+            sortOrder: 'spent_at',
+            currencyFilter: CurrencyOptionsEnum.ALL,
+            clientSideSortAndFilter: false,
+        };
         const defaultURL = 'https://example.com';
 
         const result = assembleSpendingUrl(listSettings, defaultURL);

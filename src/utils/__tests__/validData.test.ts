@@ -32,7 +32,7 @@ describe('validData', () => {
                 description: 'Expense 1',
                 amount: '10.50',
                 currency: 'USD',
-                spent_at: new Date('2022-01-01'),
+                spent_at: '2022-01-01',
             },
         ];
 
