@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Spendings.scss';
 import NewSpendingForm from '../../components/NewSpendingForm/NewSpendingForm';
 import SpendingDisplay from '../../components/SpendingDisplay/SpendingDisplay';
@@ -50,6 +50,23 @@ const Spendings: React.FC = () => {
                 return response.json();
             });
     });
+
+    // for fun
+    useEffect(() => {
+        fetch(process.env.VITE_EXCHANGE_RATE_API_URL as string)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    const usdValue = data.rates['HUF'] / data.rates['USD'];
+                    console.info("%c1 USD equals " + usdValue + " HUF", "font-weight: bold; color: #22dd22");
+                    currencyToValueMap[CurrencyEnum.USD] = usdValue;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching exchange rate:', error);
+            });
+    }, []);
+
 
 
     const handleSettingsChange = (newListSettings: Partial<TSpendingsListSettings>) => {
