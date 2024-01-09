@@ -6,6 +6,7 @@ import { CurrencyEnum, CurrencyOptionsEnum, TSpendingEntry, TSpendingsListSettin
 import { useQuery } from 'react-query';
 import { extractValidData } from '../../utils/validData';
 import { assembleSpendingUrl } from '../../utils/assembleSpendingUrl';
+import { useCookies } from 'react-cookie';
 
 const spendingURL: string = process.env.VITE_SPENDING_API_URL as string;
 
@@ -24,18 +25,21 @@ const sortSpendingsList = (spendingsList: TSpendingEntry[], sortOrder: TSpending
     });
 };
 
-const defaultSettings: TSpendingsListSettings = {
-    sortOrder: '-spent_at',
-    currencyFilter: CurrencyOptionsEnum.ALL,
-    clientSideSortAndFilter: false,
-};
+
 
 const Spendings: React.FC = () => {
 
+    const [cookies, setCookie] = useCookies<keyof TSpendingsListSettings>(['currencyFilter', 'sortOrder', 'clientSideSortAndFilter']);
 
+    const defaultSettings: TSpendingsListSettings = {
+        sortOrder: cookies.sortOrder || '-spent_at',
+        currencyFilter: cookies.currencyFilter || CurrencyOptionsEnum.ALL,
+        clientSideSortAndFilter: cookies.clientSideSortAndFilter || false,
+    };
     const [listSettings, setListSettings] = useState<TSpendingsListSettings>(defaultSettings);
 
     const assembledURL = assembleSpendingUrl(listSettings, spendingURL);
+
 
     const { data, isError, isLoading, refetch } = useQuery(['spendings', listSettings.sortOrder, listSettings.currencyFilter], () => {
         return fetch(assembledURL)
@@ -50,6 +54,10 @@ const Spendings: React.FC = () => {
 
     const handleSettingsChange = (newListSettings: Partial<TSpendingsListSettings>) => {
         setListSettings((previousState) => ({ ...previousState, ...newListSettings }));
+        setCookie('currencyFilter', newListSettings.currencyFilter ?? cookies.currencyFilter);
+        setCookie('sortOrder', newListSettings.sortOrder ?? cookies.sortOrder);
+        setCookie('clientSideSortAndFilter', newListSettings.clientSideSortAndFilter ?? cookies.clientSideSortAndFilter);
+
     }
 
     const triggerRefetch = () => {
