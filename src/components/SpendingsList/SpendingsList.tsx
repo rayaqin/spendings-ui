@@ -1,7 +1,7 @@
 import React from 'react';
 import './SpendingsList.scss';
 import { TSpendingEntry } from '../../utils/spendingTypes';
-import SpendingListItem from '../SpendingEntry/SpendingEntry';
+import SpendingEntry from '../SpendingEntry/SpendingEntry';
 import SpendingEntrySkeleton from '../SpendingEntry/SpendingEntrySkeleton';
 
 
@@ -12,6 +12,7 @@ type SpendingsListProps = {
 }
 
 const SpendingsList: React.FC<SpendingsListProps> = ({ spendings, isLoading, isError }) => {
+    console.log("spendingsList:", spendings, isLoading, isError);
     return (
         <ul className="spendings-list">
             {isLoading ?
@@ -22,7 +23,7 @@ const SpendingsList: React.FC<SpendingsListProps> = ({ spendings, isLoading, isE
                         <p> Please try again later.</p>
                     </> :
                     spendings.length ?
-                        spendings.map(spending => (<SpendingListItem spending={spending} key={spending.id} />)) :
+                        spendings.map(spending => (<SpendingEntry spending={spending} key={spending.id} />)) :
                         <p>No spendings added yet. Add one to get started with managing your finances.</p>}
         </ul>
     );

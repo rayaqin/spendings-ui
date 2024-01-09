@@ -31,8 +31,8 @@ describe('SpendingsList', () => {
 
     it('should render spendings list when spendings array is not empty', () => {
         const spendings: TSpendingEntry[] = [
-            { id: 1, description: 'Spending 1', amount: 10, currency: CurrencyEnum.USD, spent_at: new Date() },
-            { id: 2, description: 'Spending 2', amount: 20, currency: CurrencyEnum.HUF, spent_at: new Date() },
+            { id: 1, description: 'Spending 1', amount: 10, currency: CurrencyEnum.USD, spent_at: new Date().toISOString() },
+            { id: 2, description: 'Spending 2', amount: 20, currency: CurrencyEnum.HUF, spent_at: new Date().toISOString() },
         ];
         const isLoading = false;
         const isError = false;

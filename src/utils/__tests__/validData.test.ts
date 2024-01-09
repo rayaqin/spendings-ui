@@ -1,4 +1,4 @@
-import { validData } from '../validData';
+import { extractValidData } from '../validData';
 
 describe('validData', () => {
     it('should filter the data correctly', () => {
@@ -36,7 +36,7 @@ describe('validData', () => {
             },
         ];
 
-        const result = validData(data);
+        const result = extractValidData(data);
 
         expect(result).toEqual(expectedOutput);
     });
@@ -44,7 +44,7 @@ describe('validData', () => {
     it('should return an empty array if data is not an array', () => {
         const data = null;
 
-        const result = validData(data);
+        const result = extractValidData(data);
 
         expect(result).toEqual([]);
     });

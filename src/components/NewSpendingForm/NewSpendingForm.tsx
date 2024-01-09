@@ -92,7 +92,7 @@ const NewSpendingForm: React.FC<NewSpendingFormProps> = ({ triggerRefetch }) => 
         const postData = {
             ...formData,
             amount: parseFloat(formData.amount),
-            spent_at: new Date(),
+            spent_at: new Date().toISOString(),
         }
 
         setSaveButtonState('loading');

@@ -1,6 +1,6 @@
 import { CurrencyEnum, TSpendingEntry } from './spendingTypes';
 
-export const validData = (data: unknown): TSpendingEntry[] => {
+export const extractValidData = (data: unknown): TSpendingEntry[] => {
     if (!Array.isArray(data)) return [];
     return data
         .filter((entry) => {
@@ -17,6 +17,6 @@ export const validData = (data: unknown): TSpendingEntry[] => {
         })
         .map((entry) => ({
             ...entry,
-            spent_at: new Date(entry.spent_at),
+            spent_at: entry.spent_at,
         }));
 };

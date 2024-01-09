@@ -1,5 +1,5 @@
-export const formatSpendingsDate = (spent_at: Date): string => {
-    return spent_at
+export const formatSpendingsDate = (spent_at: string): string => {
+    return new Date(spent_at)
         .toLocaleString('en-US', {
             hour: 'numeric',
             minute: 'numeric',

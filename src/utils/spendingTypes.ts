@@ -13,7 +13,7 @@ export type TSpendingEntry = {
     description: string;
     amount: number;
     currency: keyof typeof CurrencyEnum;
-    spent_at: Date;
+    spent_at: string;
 };
 
 export type TNewSpendingEntry = {
@@ -36,7 +36,6 @@ export enum SpendingInputEnum {
 export type TSpendingInputType = keyof typeof SpendingInputEnum;
 
 export type TSpendingsListSettings = {
-    keyFlip: boolean;
     sortOrder: 'spent_at' | 'amount' | '-spent_at' | '-amount';
     currencyFilter: CurrencyOptionsEnum;
 };
