@@ -12,7 +12,6 @@ type SpendingsListProps = {
 }
 
 const SpendingsList: React.FC<SpendingsListProps> = ({ spendings, isLoading, isError }) => {
-    console.log("spendingsList:", spendings, isLoading, isError);
     return (
         <ul className="spendings-list">
             {isLoading ?

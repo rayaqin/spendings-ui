@@ -49,7 +49,6 @@ const Spendings: React.FC = () => {
 
 
     const handleSettingsChange = (newListSettings: Partial<TSpendingsListSettings>) => {
-        console.log("handleSettingsChange", newListSettings);
         setListSettings((previousState) => ({ ...previousState, ...newListSettings }));
     }
 
