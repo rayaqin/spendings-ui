@@ -26,13 +26,11 @@
     .spending-entry__left-group {
         display: flex;
         gap: $medium-flex-gap;
-        width: 100%;
-        max-width: 75%;
         align-items: center;
 
         .left-group__icon-box {
             padding: 0.5rem;
-            height: fit-content;
+            min-width: fit-content;
             border-radius: 0.8rem;
             background-color: $highlight-ui-color;
 
@@ -44,13 +42,15 @@
             .icon-box__icon {
                 display: flex;
                 align-items: center;
-                height: 1.8rem;
-                width: 1.8rem;
+                min-width: 1.8rem;
+                min-height: 1.8rem;
                 color: $highlight-font-color;
 
                 @media (max-width: 670px) {
                     height: 1.2rem;
                     width: 1.2rem;
+                    min-width: 1.2rem;
+                    min-height: 1.2rem;
                 }
             }
 
@@ -63,7 +63,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            max-width: 75%;
             gap: $small-flex-gap;
 
             .text-group__description {
@@ -110,13 +109,14 @@
     .spending-entry__right-group {
         display: flex;
         align-items: center;
-        width: 100%;
         justify-content: flex-end;
         gap: $medium-flex-gap;
+        flex-shrink: 0;
 
         .right-group__amount {
             font-size: 1.1rem;
             font-weight: 600;
+            white-space: nowrap;
 
             &.skeleton {
                 border-radius: $medium-border-radius;
@@ -131,7 +131,6 @@
 
         .right-group__button-group {
             display: flex;
-            flex-wrap: wrap;
             gap: $default-flex-gap;
             button {
                 height: $default-ui-element-height;

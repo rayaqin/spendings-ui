@@ -8,6 +8,7 @@ import { RxCross2 as DeleteIcon } from "react-icons/rx";
 import React from 'react';
 import { formatSpendingsDate } from '../../utils/formatSpendingsDate';
 import { currencyToDisplayMap, currencyToSideMap } from '../../utils/currencyMaps';
+import { convertNumberToKMB } from '../../utils/convertNumbersToKMB';
 
 const currencyToIconMap = {
     [CurrencyEnum.USD]: <LuDollarSign className="icon-box__icon" />,
@@ -24,9 +25,10 @@ const SpendingEntry: React.FC<SpendingEntryProps> = ({ spending }) => {
 
 
     const amountWithCurrency = () => {
-        if (currencyToSideMap[currency] === 'left') return `${currencyToDisplayMap[currency]}${amount}`;
-        if (currencyToSideMap[currency] === 'right') return `${amount}${currencyToDisplayMap[currency]}`;
-        return amount;
+        const kmbAmount = convertNumberToKMB(amount);
+        if (currencyToSideMap[currency] === 'left') return `${currencyToDisplayMap[currency]}${kmbAmount}`;
+        if (currencyToSideMap[currency] === 'right') return `${kmbAmount} ${currencyToDisplayMap[currency]}`;
+        return kmbAmount;
     }
 
 
