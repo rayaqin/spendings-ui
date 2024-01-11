@@ -60,6 +60,7 @@ It only occured to me towards the very end of development that you might actuall
 -   Ended up with a custom implementation of **skeletons for the SpendingsList**, because the React Loading Skeleton library just didn't work properly for me, and refused to play animations the right way.
 -   Although technically it wasn't strictly necessary, I **filtered the backend response**, to make sure the array items are the right type before trying to display them.
 -   Added some **cute hover effects**, and a favicon.
+-   Added a **k/m/b converter that abbreviates numbers larger than 1_000_000** to better handle cases when the numbers are huge and the screen is small.
 
 ## Potential sass failed to load issue
 
