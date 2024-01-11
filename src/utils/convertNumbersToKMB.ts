@@ -1,5 +1,5 @@
 export function convertNumberToKMB(number: number): string {
-    if (number <= 999999) {
+    if (number <= 999999 || number.toString().includes('e')) {
         return number.toString();
     }
 
@@ -12,6 +12,11 @@ export function convertNumberToKMB(number: number): string {
         suffixIndex++;
     }
 
-    // rounding down to avoid cases like 999.9m becoming 1000m
-    return Math.floor(convertedNumber * 10) / 10 + suffixes[suffixIndex];
+    const roundedVersion = parseFloat(convertedNumber.toFixed(1));
+    if (roundedVersion >= 1000) {
+        convertedNumber = roundedVersion / 1000;
+        suffixIndex++;
+    }
+
+    return parseFloat(convertedNumber.toFixed(1)) + suffixes[suffixIndex];
 }
