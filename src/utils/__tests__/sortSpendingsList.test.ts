@@ -2,7 +2,6 @@ import { sortSpendingsList } from '../sortSpendingsList';
 import { CurrencyEnum } from '../spendingTypes';
 
 describe('sortSpendingsList', () => {
-
     const currencyToValueMap = {
         [CurrencyEnum.HUF]: 1,
         [CurrencyEnum.USD]: 345,
@@ -14,8 +13,7 @@ describe('sortSpendingsList', () => {
         { id: 3, description: 'Spending 3', amount: 15, currency: CurrencyEnum.USD, spent_at: '2022-01-03' },
     ];
 
-
-    it('should sort spendings list by "spent_at" in ascending order', () => {
+    it('should sort spendings list by date in ascending order if sortOrder is "spent_at"', () => {
         const sortOrder = 'spent_at';
         const sortedList = sortSpendingsList(spendingsList, sortOrder, currencyToValueMap);
 
@@ -26,7 +24,7 @@ describe('sortSpendingsList', () => {
         ]);
     });
 
-    it('should sort spendings list by "spent_at" in descending order', () => {
+    it('should sort spendings list by date in descending order if sortOrder is "-spent_at"', () => {
         const sortOrder = '-spent_at';
         const sortedList = sortSpendingsList(spendingsList, sortOrder, currencyToValueMap);
 
@@ -37,7 +35,7 @@ describe('sortSpendingsList', () => {
         ]);
     });
 
-    it('should sort spendings list by amount in ascending order', () => {
+    it('should sort spendings list by amount in ascending order if sortOrder is "amount"', () => {
         const sortOrder = 'amount';
         const sortedList = sortSpendingsList(spendingsList, sortOrder, currencyToValueMap);
 
@@ -48,7 +46,7 @@ describe('sortSpendingsList', () => {
         ]);
     });
 
-    it('should sort spendings list by amount in descending order', () => {
+    it('should sort spendings list by amount in descending order if sortOrder is "-amount"', () => {
         const sortOrder = '-amount';
         const sortedList = sortSpendingsList(spendingsList, sortOrder, currencyToValueMap);
 
