@@ -1,4 +1,4 @@
-# Polygence coding challenge
+# Interview coding challenge
 
 This repo has been created as part of an interview process to fulfill the requirements listed [HERE](https://github.com/polygence/spending-frontend?tab=readme-ov-file).
 
